@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -21,7 +23,7 @@ android {
     // Firma de la versión Release: ver "Firmar el APK Release" en README.md.
     // Las credenciales se leen de keystore.properties, que NO debe subirse al repositorio.
     val keystoreFile = rootProject.file("keystore.properties")
-    val keystore = java.util.Properties()
+    val keystore = Properties()
     if (keystoreFile.exists()) keystoreFile.inputStream().use { keystore.load(it) }
 
     signingConfigs {
