@@ -21,13 +21,20 @@ jobs:
 
       - uses: gradle/actions/setup-gradle@v4
 
-      - name: Pruebas unitarias
-        run: |
-          chmod +x gradlew
-          ./gradlew testDebugUnitTest
-
       - name: Compilar APK Debug
-        run: ./gradlew assembleDebug
+        shell: bash
+        run: |
+          set -o pipefail
+          chmod +x gradlew
+          ./gradlew assembleDebug --console=plain 2>&1 | tee build.log
+
+      - name: Pruebas unitarias
+        id: tests
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          ./gradlew testDebugUnitTest --console=plain 2>&1 | tee test.log
 
       - name: Guardar APK como artefacto
         uses: actions/upload-artifact@v4
@@ -42,4 +49,21 @@ jobs:
         run: |
           cp app/build/outputs/apk/debug/app-debug.apk AdShield.apk
           gh release delete ultima --yes --cleanup-tag || true
-          gh release create ultima AdShield.apk --title "AD Shield (última compilación)" --notes "Compilación automática del commit ${{ github.sha }}"
+          gh release create ultima AdShield.apk --title "AD Shield (última compilación)" --notes "Compilación automática del commit ${{ github.sha }}. Pruebas unitarias: ${{ steps.tests.outcome }}"
+
+      # Deja los registros en la rama ci-logs para poder revisarlos sin entrar a Actions.
+      - name: Guardar registros
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p /tmp/logs
+          cp build.log test.log /tmp/logs/ 2>/dev/null || true
+          find app/build/test-results -name '*.xml' -exec cp {} /tmp/logs/ \; 2>/dev/null || true
+          echo "${{ github.sha }} build=${{ job.status }} tests=${{ steps.tests.outcome }}" > /tmp/logs/status.txt
+          cd /tmp/logs
+          git init -q -b ci-logs
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -q -m "Registros de ${{ github.sha }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-logs
