@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.adshield.domain.SaveDomainRuleUseCaseTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-05T22:28:39" hostname="runnervm8df0l" time="0.006">
+  <properties/>
+  <testcase name="editingToAnExistingDomainIsDuplicate" classname="com.adshield.domain.SaveDomainRuleUseCaseTest" time="0.003"/>
+  <testcase name="savesNormalizedDomain" classname="com.adshield.domain.SaveDomainRuleUseCaseTest" time="0.001"/>
+  <testcase name="rejectsInvalidDomain" classname="com.adshield.domain.SaveDomainRuleUseCaseTest" time="0.0"/>
+  <testcase name="editingWithoutChangesIsAccepted" classname="com.adshield.domain.SaveDomainRuleUseCaseTest" time="0.001"/>
+  <testcase name="editingRenamesTheSameRow" classname="com.adshield.domain.SaveDomainRuleUseCaseTest" time="0.0"/>
+  <testcase name="rejectsDuplicate" classname="com.adshield.domain.SaveDomainRuleUseCaseTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

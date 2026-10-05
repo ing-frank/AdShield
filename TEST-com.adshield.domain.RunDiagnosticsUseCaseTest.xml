@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.adshield.domain.RunDiagnosticsUseCaseTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-05T22:28:39" hostname="runnervm8df0l" time="0.031">
+  <properties/>
+  <testcase name="noInternetAndBrokenDatabaseAreErrors" classname="com.adshield.domain.RunDiagnosticsUseCaseTest" time="0.027"/>
+  <testcase name="everythingOkWhenHealthy" classname="com.adshield.domain.RunDiagnosticsUseCaseTest" time="0.0"/>
+  <testcase name="activeStateWithoutServiceIsAnError" classname="com.adshield.domain.RunDiagnosticsUseCaseTest" time="0.0"/>
+  <testcase name="listStatesAreDistinguished" classname="com.adshield.domain.RunDiagnosticsUseCaseTest" time="0.001"/>
+  <testcase name="vpnErrorShowsTheRealMessage" classname="com.adshield.domain.RunDiagnosticsUseCaseTest" time="0.0"/>
+  <testcase name="strictPrivateDnsAddsAWarning" classname="com.adshield.domain.RunDiagnosticsUseCaseTest" time="0.002"/>
+  <testcase name="missingPermissionIsReported" classname="com.adshield.domain.RunDiagnosticsUseCaseTest" time="0.0"/>
+  <testcase name="disabledProtectionIsAWarningNotAnError" classname="com.adshield.domain.RunDiagnosticsUseCaseTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

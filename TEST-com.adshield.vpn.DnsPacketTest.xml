@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.adshield.vpn.DnsPacketTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-05T22:28:39" hostname="runnervm8df0l" time="0.002">
+  <properties/>
+  <testcase name="wrapAndParseRoundTrip" classname="com.adshield.vpn.DnsPacketTest" time="0.0"/>
+  <testcase name="blockedResponseForAIsZeroAddress" classname="com.adshield.vpn.DnsPacketTest" time="0.001"/>
+  <testcase name="serverFailureSetsRcodeTwo" classname="com.adshield.vpn.DnsPacketTest" time="0.0"/>
+  <testcase name="parsesQuestionAndLowercasesName" classname="com.adshield.vpn.DnsPacketTest" time="0.0"/>
+  <testcase name="wrappedHeaderHasValidChecksum" classname="com.adshield.vpn.DnsPacketTest" time="0.001"/>
+  <testcase name="rejectsCompressedNamesInQuestion" classname="com.adshield.vpn.DnsPacketTest" time="0.0"/>
+  <testcase name="rejectsResponsesAndTruncatedPackets" classname="com.adshield.vpn.DnsPacketTest" time="0.0"/>
+  <testcase name="blockedResponseForAaaaHasSixteenZeroBytes" classname="com.adshield.vpn.DnsPacketTest" time="0.0"/>
+  <testcase name="blockedResponseForOtherTypesIsEmptyNoError" classname="com.adshield.vpn.DnsPacketTest" time="0.0"/>
+  <testcase name="ignoresNonUdpIpv6AndFragments" classname="com.adshield.vpn.DnsPacketTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
